@@ -1,0 +1,165 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Home Page */
+  .home-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Home Page Title */
+  .home-title {
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 30px;
+  }
+  
+  /* Form container */
+  .form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+  }
+  
+  /* Form Title */
+  .form-title {
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  /* Form fields */
+  .form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .form input,
+  .form select,
+  .form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  .form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+  }
+  
+  .form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Approval Container */
+  .approval-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .approval-title {
+    font-size: 1.8em;
+    color: #FF5722;
+  }
+  
+  .leave-info p {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .approval-buttons button {
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1.1em;
+  }
+  
+  .approve-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+  
+  .reject-btn {
+    background-color: #F44336;
+    color: white;
+    border: none;
+  }
+  
+  .approval-buttons button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Leave Requests List */
+  .leave-requests-title {
+    font-size: 1.8em;
+    color: #2196F3;
+    margin-top: 40px;
+  }
+  
+  .leave-requests-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .leave-request-item {
+    background-color: #f1f1f1;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 1.1em;
+  }
+  
+  .leave-request-item strong {
+    color: #333;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .home-title {
+      font-size: 2em;
+    }
+  
+    .form-container, .approval-container {
+      padding: 20px;
+    }
+  
+    .form input,
+    .form select,
+    .form textarea {
+      font-size: 0.9em;
+    }
+  
+    .form button {
+      font-size: 1em;
+    }
+  
+    .approval-buttons button {
+      font-size: 1em;
+    }
+  }
+  
