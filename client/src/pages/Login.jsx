@@ -1,65 +1,63 @@
-import React, { useState } from 'react';
-import './Login.css';
-import { users } from "../data/users";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import './Login.css'; 
 
-const Login = ({ setIsAuthenticated }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+function LoginPage({ setIsAuthenticated }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Initialize the navigate function
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (username === '' || password === '') {
-      setError('Both fields are required');
-      return;
-    }
-
-    // Simulate a login check
-    if (username === 'admin' && password === 'admin123') {
-      setIsAuthenticated(true); // Update state to true to mark as logged in
-      alert('Login successful!');
+    // Simple authentication check (just for demo purposes)
+    if (username === "admin" && password === "admin") {
+      setIsAuthenticated(true); // Set the authenticated state to true
+      navigate("/"); // Redirect to the home page ("/") after successful login
+    } else if (username === "teacher" && password === "teacher") {
+      setIsAuthenticated(true); // Set the authenticated state to true
+      navigate("/"); // Redirect to the home page ("/") after successful login
     } else {
-      setError('Invalid username or password');
+      alert("Invalid credentials!"); // Alert for incorrect login credentials
     }
   };
 
   return (
     <div className="login-container">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <div>
-          <label>Username:</label>
+          <label>Username: </label>
           <input
             type="text"
             value={username}
-            onChange={handleUsernameChange}
-            placeholder="Enter username"
+            onChange={(e) => setUsername(e.target.value)}
+            required
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Password: </label>
           <input
             type="password"
             value={password}
-            onChange={handlePasswordChange}
-            placeholder="Enter password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Login</button>
+        <button type="submit" className="login-btn">Login</button>
       </form>
+
+      {/* Register Button */}
+      <div>
+        <button 
+          onClick={() => navigate("/register")} // Navigate to the Register Page
+          className="register-btn"
+        >
+          Register
+        </button>
+      </div>
     </div>
   );
-};
+}
 
-export default Login;
+export default LoginPage;

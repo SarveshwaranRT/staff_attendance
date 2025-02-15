@@ -1,11 +1,10 @@
-export const users = [
-    {
-      username: "admin",
-      password: "admin123", // Secure password is not used in this example
-    },
-    {
-      username: "user1",
-      password: "password123", // Example user
-    },
+// data/users.js
+
+const users = [
+    { username: "admin", password: "admin" },
+    { username: "teacher", password: "teacher" },
+    // Add more users and passwords as needed
   ];
+  
+  export default users;
   

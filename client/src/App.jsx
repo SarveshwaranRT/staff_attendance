@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
@@ -7,17 +7,14 @@ import AboutPage from "./pages/AboutPage";
 import SearchPage from "./pages/SearchPage";
 import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/Login";
+import RegistrationPage from "./pages/RegistrationPage"; // Import RegistrationPage
 
 function App() {
   const [activePageIndex, setActivePageIndex] = useState(0);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // UseEffect to trigger a re-render when isAuthenticated state changes
   useEffect(() => {
-    // Check if the user is authenticated, you can also check localStorage or cookies here
-    if (isAuthenticated) {
-      console.log("User is authenticated");
-    }
+    console.log("isAuthenticated:", isAuthenticated);
   }, [isAuthenticated]);
 
   const NAVBAR_ITEMS = [
@@ -31,7 +28,7 @@ function App() {
     <Router>
       <div className="app">
         {!isAuthenticated ? (
-          <LoginPage setIsAuthenticated={setIsAuthenticated} /> // Show login page if not authenticated
+          <LoginPage setIsAuthenticated={setIsAuthenticated} />
         ) : (
           <>
             <NavBar ITEMS={NAVBAR_ITEMS} setActivePageIndex={setActivePageIndex} />
@@ -41,6 +38,7 @@ function App() {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/register" element={<RegistrationPage />} />
               </Routes>
             </div>
           </>
