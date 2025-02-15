@@ -108,7 +108,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="home-page">
+    <div className="home-page" style={{ paddingTop: '60px' }}> {/* Adjust this padding as per NavBar height */}
       <h1 className="home-title">Teacher Leave Announcement Portal</h1>
       <LeaveRequestForm onSubmit={handleLeaveRequestSubmit} />
       
