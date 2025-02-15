@@ -6,43 +6,22 @@ import './RegistrationPage.css'; // For styling
 const RegistrationPage = () => {
   const [userType, setUserType] = useState(''); // Store the selected user type
 
-  const handleSelectionChange = (type) => {
-    setUserType(type);
-  };
-
   return (
     <div className="registration-container">
       <h1>Registration Page</h1>
       
-      {/* User Type Selection */}
       <div className="user-selection">
-        <button 
-          onClick={() => handleSelectionChange('admin')}
-          className="selection-btn"
-        >
-          Register as Admin
-        </button>
-        <button 
-          onClick={() => handleSelectionChange('teacher')}
-          className="selection-btn"
-        >
-          Register as Teacher
-        </button>
+        <button onClick={() => setUserType('admin')}>Register as Admin</button>
+        <button onClick={() => setUserType('teacher')}>Register as Teacher</button>
       </div>
 
-      {/* Render corresponding form based on user type */}
       {userType === 'admin' && <AdminForm />}
       {userType === 'teacher' && <TeacherForm />}
 
-      {/* Optional: Button to clear user type selection */}
-      {userType && (
-        <button
-          onClick={() => setUserType('')}
-          className="clear-selection-btn"
-        >
-          Change User Type
-        </button>
-      )}
+      {/* Optional registration info or additional links */}
+      <div className="register-info">
+        <p>Already have an account? <a href="/login">Login here</a></p>
+      </div>
     </div>
   );
 };

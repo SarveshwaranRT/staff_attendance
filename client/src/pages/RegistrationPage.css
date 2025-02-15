@@ -1,56 +1,98 @@
+/* General styling for the registration page container */
 .registration-container {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
     padding: 20px;
-    text-align: center;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
   h1 {
+    text-align: center;
+    color: #333;
     margin-bottom: 20px;
   }
   
+  /* Button styling for the user type selection */
+  .user-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
   .user-selection button {
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .form-container {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px;
-    margin: auto;
-  }
-  
-  form div {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
+    background-color: #4CAF50;
     color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
   }
   
-  button:hover {
+  .user-selection button:hover {
     background-color: #45a049;
+  }
+  
+  /* Form styles for both Admin and Teacher forms */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  form input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  form input:focus {
+    border-color: #4CAF50;
+  }
+  
+  form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #45a049;
+  }
+  
+  form .error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .register-info {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  
+  .register-info a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+  
+  .register-info a:hover {
+    text-decoration: underline;
   }
   

@@ -1,64 +1,80 @@
 import React, { useState } from 'react';
 
 const TeacherForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [password, setPassword] = useState('');
+  const [teacherData, setTeacherData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTeacherData({ ...teacherData, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Teacher Registered:', { name, email, subject, password });
-    // Add logic to save data or API call for registration
+    // Handle form submission logic (e.g., send data to server)
+    console.log("Teacher Data Submitted:", teacherData);
   };
 
   return (
-    <div className="form-container">
+    <form onSubmit={handleSubmit} className="registration-form">
       <h2>Teacher Registration</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name"
-            required
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <div>
-          <label>Subject:</label>
-          <input
-            type="text"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-            placeholder="Enter your subject"
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-        <button type="submit">Register</button>
-      </form>
-    </div>
+      <div>
+        <label>Name: </label>
+        <input
+          type="text"
+          name="name"
+          value={teacherData.name}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Email: </label>
+        <input
+          type="email"
+          name="email"
+          value={teacherData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Subject: </label>
+        <input
+          type="text"
+          name="subject"
+          value={teacherData.subject}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Password: </label>
+        <input
+          type="password"
+          name="password"
+          value={teacherData.password}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Confirm Password: </label>
+        <input
+          type="password"
+          name="confirmPassword"
+          value={teacherData.confirmPassword}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <button type="submit">Register</button>
+    </form>
   );
 };
 

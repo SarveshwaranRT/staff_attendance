@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
-import './Login.css'; 
+import { useNavigate } from "react-router-dom"; // Ensure you import useNavigate correctly
+import './Login.css'; // Your styling file for login
 
-function LoginPage({ setIsAuthenticated }) {
+function Login({ setIsAuthenticated }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate(); // This is essential for navigation
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -46,11 +46,12 @@ function LoginPage({ setIsAuthenticated }) {
         </div>
         <button type="submit" className="login-btn">Login</button>
       </form>
-
+      
       {/* Register Button */}
       <div>
         <button 
-          onClick={() => navigate("/register")} // Navigate to the Register Page
+          onClick={() => navigate("/register")} // Navigate to the register page
+          style={styles.registerBtn}  // Inline styles for Register button
           className="register-btn"
         >
           Register
@@ -60,4 +61,23 @@ function LoginPage({ setIsAuthenticated }) {
   );
 }
 
-export default LoginPage;
+// Inline styles for the Register Button
+const styles = {
+  registerBtn: {
+    display: 'inline-block',
+    backgroundColor: '#4CAF50',  // Green background color
+    color: 'white',
+    padding: '12px 24px',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    border: 'none',
+    borderRadius: '5px',  // Rounded corners
+    cursor: 'pointer',
+    marginTop: '15px',  // Space between Login and Register button
+    transition: 'all 0.3s ease',  // Smooth transition for hover effect
+    textAlign: 'center',
+    width: '100%',  // Make it full width on small screens
+  },
+};
+
+export default Login;
